@@ -1,0 +1,22 @@
+{
+  "name": "lapadarie-ts",
+  "version": "1.0.0",
+  "description": "Atualização da API LaPadarie para Typescript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Gessivam Júnior <juniorgessivam@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^18.0.5",
+    "@typescript-eslint/eslint-plugin": "^5.30.6",
+    "@typescript-eslint/parser": "^5.30.6",
+    "eslint": "^8.20.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^2.7.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.7.4"
+  }
+}
