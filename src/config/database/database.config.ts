@@ -1,9 +1,9 @@
-import { createPool } from "mysql2/promise";
-import * as dotenv from "dotenv";
+import { createPool } from "mysql2";
+import dotenv from "dotenv";
 
 dotenv.config();
 
-export default function connect() {
+export default function connection() {
   const pool = createPool({
     user: process.env.MYSQL_USER,
     password: process.env.MYSQL_PASSWORD,
