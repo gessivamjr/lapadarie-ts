@@ -1,5 +1,6 @@
 import express, { Application } from "express";
 import morgan from "morgan";
+import { CustomerRouter } from "./routes/customers.routes";
 
 export class App {
   private app: Application;
@@ -9,6 +10,7 @@ export class App {
     this.app = express();
     this.listen();
     this.middlewares();
+    this.routes();
     this.cors();
     this.morgan();
   }
@@ -22,6 +24,10 @@ export class App {
   private middlewares(): void {
     this.app.use(express.urlencoded({ extended: false }));
     this.app.use(express.json());
+  }
+
+  private routes(): void {
+    this.app.use("/api/customer/", CustomerRouter);
   }
 
   private cors(): void {
