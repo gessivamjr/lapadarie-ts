@@ -1,6 +1,7 @@
 import express, { Application } from "express";
 import morgan from "morgan";
 import { routerCustomer } from "./api/customers/customers.route";
+import { routerReceipts } from "./api/receipts/receipts.route";
 export class App {
   private app: Application;
   private port = process.env.PORT || 3000;
@@ -27,6 +28,7 @@ export class App {
 
   private routes(): void {
     this.app.use("/api/customer/", routerCustomer);
+    this.app.use("/api/receipts/", routerReceipts);
   }
 
   private cors(): void {
