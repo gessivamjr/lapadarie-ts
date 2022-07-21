@@ -31,4 +31,13 @@ export class CustomerController {
     const service = await this.customerService.update(customer_name, id_sandwich, id_customer);
     res.status(200).send(service);
   }
+
+  async deleteCustomer(req: Request, res: Response) {
+    const {
+      params: { id_customer },
+    } = req;
+
+    const service = await this.customerService.delete(id_customer);
+    res.status(200).send(service);
+  }
 }

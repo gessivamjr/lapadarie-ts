@@ -23,6 +23,13 @@ export class CustomerService {
     return result;
   }
 
+  public async delete(id_customer: string) {
+    const query = "DELETE FROM customers WHERE id_customer = ?";
+    const params = [id_customer];
+    const result = await this.main(query, params);
+    return result;
+  }
+
   public main(query: string, params?) {
     return new Promise((resolve) => {
       this.conn.getConnection((error, conn) => {
