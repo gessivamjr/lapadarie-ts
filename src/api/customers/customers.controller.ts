@@ -21,4 +21,14 @@ export class CustomerController {
     const service = await this.customerService.create(customer_name, id_sandwich);
     res.status(201).send(service);
   }
+
+  async updateCustomer(req: Request, res: Response) {
+    const {
+      params: { id_customer },
+      body: { customer_name, id_sandwich },
+    } = req;
+
+    const service = await this.customerService.update(customer_name, id_sandwich, id_customer);
+    res.status(200).send(service);
+  }
 }
