@@ -1,17 +1,15 @@
 import express, { Application } from "express";
 import morgan from "morgan";
-import { CustomerController } from "./api/customers/customers.controller";
+import { routerCustomer } from "./api/customers/customers.routes";
 export class App {
   private app: Application;
   private port = process.env.PORT || 3000;
-  private customerRoutes;
 
   constructor() {
     this.app = express();
     this.listen();
     this.middlewares();
     this.routes();
-    this.customerRoutes = new CustomerController();
     this.cors();
     this.morgan();
   }
@@ -28,7 +26,7 @@ export class App {
   }
 
   private routes(): void {
-    this.app.post("/api/customer/", this.customerRoutes.registerCustomer);
+    this.app.use("/api/customer/", routerCustomer);
   }
 
   private cors(): void {
