@@ -1,6 +1,6 @@
 import express, { Application } from "express";
 import morgan from "morgan";
-import { routerCustomer } from "./api/customers/customers.routes";
+import { routerCustomer } from "./api/customers/customers.route";
 export class App {
   private app: Application;
   private port = process.env.PORT || 3000;

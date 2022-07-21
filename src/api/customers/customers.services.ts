@@ -9,14 +9,21 @@ export class CustomerService {
     return result;
   }
 
-  public main(query: string) {
+  public async create(customer_name: string, id_sandwich: number) {
+    const query = `INSERT INTO customers(customer_name, id_sandwich) VALUES(?, ?)`;
+    const params = [customer_name, id_sandwich];
+    const result = await this.main(query, params);
+    return result;
+  }
+
+  public main(query: string, params?) {
     return new Promise((resolve) => {
       this.conn.getConnection((error, conn) => {
         if (error) {
           throw new Error(error.message);
         }
 
-        conn.query(query, (err, result) => {
+        conn.query(query, params, (err, result) => {
           if (err) {
             throw new Error(err.message);
           }
