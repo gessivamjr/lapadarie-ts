@@ -16,6 +16,13 @@ export class ReceiptsService {
     return result;
   }
 
+  public async selectOne(id_receipt: string) {
+    const query = "SELECT * FROM receipts WHERE id_receipt = ?";
+    const params = [id_receipt];
+    const result = await this.main(query, params);
+    return result;
+  }
+
   public main(query: string, params?) {
     return new Promise((resolve) => {
       this.conn.getConnection((error, conn) => {

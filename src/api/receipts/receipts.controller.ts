@@ -21,4 +21,13 @@ export class ReceiptsController {
     const service = await this.receiptsService.select();
     res.status(200).send(service);
   }
+
+  async showOneReceipt(req: Request, res: Response) {
+    const {
+      params: { id_receipt },
+    } = req;
+
+    const service = await this.receiptsService.selectOne(id_receipt);
+    res.status(200).send(service);
+  }
 }
