@@ -7,4 +7,13 @@ export class ReceiptsController {
   constructor() {
     this.receiptsService = new ReceiptsService();
   }
+
+  async registerReceipt(req: Request, res: Response) {
+    const {
+      body: { id_customer, total_price },
+    } = req;
+
+    const service = await this.receiptsService.create(id_customer, total_price);
+    res.status(201).send(service);
+  }
 }
