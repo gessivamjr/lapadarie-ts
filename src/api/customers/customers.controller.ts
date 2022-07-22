@@ -13,6 +13,14 @@ export class CustomerController {
     res.status(200).send(service);
   }
 
+  async showOneCustomer(req: Request, res: Response) {
+    const {
+      params: { id_customer },
+    } = req;
+    const service = await this.customerService.selectOne(id_customer);
+    res.status(200).send(service);
+  }
+
   async registerCustomer(req: Request, res: Response) {
     const {
       body: { customer_name, id_sandwich },

@@ -9,6 +9,13 @@ export class CustomerService {
     return result;
   }
 
+  public async selectOne(id_customer: string) {
+    const query = "SELECT * FROM customers WHERE id_customer = ?";
+    const params = [id_customer];
+    const result = await this.main(query, params);
+    return result;
+  }
+
   public async create(customer_name: string, id_sandwich: number) {
     const query = "INSERT INTO customers(customer_name, id_sandwich) VALUES(?, ?)";
     const params = [customer_name, id_sandwich];
