@@ -30,4 +30,23 @@ export class ReceiptsController {
     const service = await this.receiptsService.selectOne(id_receipt);
     res.status(200).send(service);
   }
+
+  async updateReceipt(req: Request, res: Response) {
+    const {
+      params: { id_receipt },
+      body: { id_customer, total_price },
+    } = req;
+
+    const service = await this.receiptsService.update(id_customer, total_price, id_receipt);
+    res.status(200).send(service);
+  }
+
+  async deleteReceipt(req: Request, res: Response) {
+    const {
+      params: { id_receipt },
+    } = req;
+
+    const service = await this.receiptsService.delete(id_receipt);
+    res.status(200).send(service);
+  }
 }

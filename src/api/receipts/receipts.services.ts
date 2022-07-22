@@ -23,6 +23,20 @@ export class ReceiptsService {
     return result;
   }
 
+  public async update(id_customer: number, total_price: number, id_receipt: string) {
+    const query = "UPDATE receipts SET id_customer = ?, total_price = ? WHERE id_receipt = ?";
+    const params = [id_customer, total_price, id_receipt];
+    const result = await this.main(query, params);
+    return result;
+  }
+
+  public async delete(id_receipt: string) {
+    const query = "DELETE FROM receipts WHERE id_receipt = ?";
+    const params = [id_receipt];
+    const result = await this.main(query, params);
+    return result;
+  }
+
   public main(query: string, params?) {
     return new Promise((resolve) => {
       this.conn.getConnection((error, conn) => {
