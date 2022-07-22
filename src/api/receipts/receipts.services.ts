@@ -10,6 +10,12 @@ export class ReceiptsService {
     return result;
   }
 
+  public async select() {
+    const query = "SELECT * FROM receipts";
+    const result = await this.main(query);
+    return result;
+  }
+
   public main(query: string, params?) {
     return new Promise((resolve) => {
       this.conn.getConnection((error, conn) => {

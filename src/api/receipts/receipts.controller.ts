@@ -16,4 +16,9 @@ export class ReceiptsController {
     const service = await this.receiptsService.create(id_customer, total_price);
     res.status(201).send(service);
   }
+
+  async showReceipts(req: Request, res: Response) {
+    const service = await this.receiptsService.select();
+    res.status(200).send(service);
+  }
 }
