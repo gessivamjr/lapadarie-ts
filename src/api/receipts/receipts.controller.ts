@@ -24,10 +24,10 @@ export class ReceiptsController {
 
   async showOneReceipt(req: Request, res: Response) {
     const {
-      params: { id_receipt },
+      params: { id_customer, total_price },
     } = req;
 
-    const service = await this.receiptsService.selectOne(id_receipt);
+    const service = await this.receiptsService.selectOne(id_customer, total_price);
     res.status(200).send(service);
   }
 

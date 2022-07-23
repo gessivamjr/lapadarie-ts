@@ -16,9 +16,10 @@ export class ReceiptsService {
     return result;
   }
 
-  public async selectOne(id_receipt: string) {
-    const query = "SELECT * FROM receipts WHERE id_receipt = ?";
-    const params = [id_receipt];
+  public async selectOne(id_customer: string, total_price: string) {
+    const query =
+      "SELECT receipts.id_receipt, customers.customer_name, sandwichs.id_sandwich, sandwichs.price FROM receipts INNER JOIN customers ON ? = customers.id_customer INNER JOIN sandwichs ON ? = sandwichs.id_sandwich";
+    const params = [id_customer, total_price];
     const result = await this.main(query, params);
     return result;
   }
